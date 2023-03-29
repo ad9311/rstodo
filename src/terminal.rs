@@ -32,3 +32,7 @@ pub fn read_priority() -> String {
     stdin().read_line(&mut priority).unwrap();
     priority.trim().to_owned()
 }
+
+pub fn alert_no_empty_title() {
+    println!("The task's title must not be empty")
+}
