@@ -1,26 +1,34 @@
 mod todo;
 
+use std::io::stdin;
 use todo::*;
 
 fn main() {
     println!("RSTodo");
+    println!("\nNew task");
+    println!("Enter task title:");
 
-    let task1 = Task::new(String::from("Do the dishes"), Priority::High);
-    let task2 = Task::new(String::from("Buy cat food"), Priority::Normal);
-    let task3 = Task::new(String::from("Finish paper"), Priority::Low);
-    let task4 = Task::new(String::from("Meditate"), Priority::None);
+    let mut title = String::new();
+    stdin()
+        .read_line(&mut title)
+        .expect("Error reading user input");
+    title = title.trim().to_string();
+
+    println!("\nEnter task priority");
+    println!("(h=high, n=normal, l=low, d=none[default]):");
+    let mut priority = String::new();
+    stdin()
+        .read_line(&mut priority)
+        .expect("Error reading user input");
+    priority = priority.trim().to_string();
+
+    println!("{} - {}", title, priority);
+
+    let task = Task::new(title, Priority::from(priority));
 
     let mut tasks: Vec<Task> = Vec::new();
 
-    tasks.push(task1);
-    tasks.push(task2);
-    tasks.push(task3);
-    tasks.push(task4);
-
-    let s = "Ángel";
-    for b in s.as_bytes() {
-        println!("{}", b);
-    }
+    tasks.push(task);
 
     for task in &tasks {
         println!("{}", task.show());
