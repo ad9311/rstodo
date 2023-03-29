@@ -12,7 +12,7 @@ pub struct Task {
 }
 
 impl Task {
-    pub fn new(title: String, priority: Priority) -> Self {
+    pub fn from(title: String, priority: Priority) -> Self {
         Task {
             title,
             priority,
@@ -30,7 +30,7 @@ impl Task {
     }
 
     pub fn show(&self) -> String {
-        format!("{} - Priority: {}", self.title, self.priority())
+        format!("{} - [{}]", self.title, self.priority())
     }
 }
 
@@ -43,13 +43,4 @@ impl Priority {
             _ => Priority::None,
         }
     }
-
-    // pub fn from_int(i: u8) -> Self {
-    //     match i {
-    //         0 => Priority::High,
-    //         1 => Priority::Normal,
-    //         2 => Priority::Low,
-    //         _ => Priority::None,
-    //     }
-    // }
 }
