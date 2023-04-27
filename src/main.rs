@@ -13,7 +13,7 @@ fn main() {
         print_input_title();
         let title = read_title();
         if title.is_empty() {
-            alert_no_empty_title();
+            alert_empty_title();
             continue;
         }
         clear_output();

@@ -33,6 +33,6 @@ pub fn read_priority() -> String {
     priority.trim().to_owned()
 }
 
-pub fn alert_no_empty_title() {
+pub fn alert_empty_title() {
     println!("The task's title must not be empty")
 }
